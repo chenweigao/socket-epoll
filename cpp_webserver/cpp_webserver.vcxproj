@@ -92,7 +92,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClCompile Include="epoll_test.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="nonblock_et_epoll.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="locker.h" />
