@@ -39,7 +39,7 @@ int main(int argc, const char* argv[])
 	int epfd = epoll_create(2000);
 
 	struct epoll_event ev;
-	ev.events = EPOLLIN;
+	ev.events = EPOLLIN | EPOLLET;
 	ev.data.fd = lfd;
 
 	epoll_ctl(epfd, EPOLL_CTL_ADD, lfd, &ev);
@@ -68,7 +68,7 @@ int main(int argc, const char* argv[])
 				fcntl(cfd, F_SETFL, flag);
 
 				struct epoll_event temp;
-				temp.events = EPOLLIN;
+				temp.events = EPOLLIN | EPOLLET;
 				// temp.events = EPOLLIN | EPOLLET;
 
 				temp.data.fd = cfd;
@@ -112,7 +112,8 @@ int main(int argc, const char* argv[])
 				{
 					if (errno == EAGAIN)
 					{
-						printf("buffer data is empty!\n");
+						continue;
+						//printf("buffer data is empty!\n");
 					}
 					else
 					{
