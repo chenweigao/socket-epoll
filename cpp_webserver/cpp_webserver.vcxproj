@@ -93,6 +93,8 @@
   <ItemGroup>
     <ClCompile Include="epoll_test.cpp" />
     <ClCompile Include="nonblock_et_epoll.c" />
+    <ClCompile Include="udp_client.c" />
+    <ClCompile Include="udp_server.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="locker.h" />

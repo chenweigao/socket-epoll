@@ -26,7 +26,7 @@ int main(int argc, const char* argv[])
 	memset(&serv_addr, 0, serv_len);
 	serv_addr.sin_family = AF_INET;
 	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);
-	// or serv_addr.sin_addr.s_addr = inet_addr("192.168.1.1");
+	// serv_addr.sin_addr.s_addr = inet_addr("192.168.1.1");
 	serv_addr.sin_port = htons(port);
 
 	bind(lfd, (struct sockaddr*) & serv_addr, serv_len);
