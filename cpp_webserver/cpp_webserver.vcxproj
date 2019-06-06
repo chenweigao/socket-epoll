@@ -38,6 +38,10 @@
       <Platform>ARM64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="libevent_read_fifo.c" />
+    <ClCompile Include="libevent_write_fifo.c" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7ab0d1a8-d9c3-4451-b16e-0900c23d64ac}</ProjectGuid>
     <Keyword>Linux</Keyword>
@@ -90,13 +94,14 @@
   <ImportGroup Label="Shared" />
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
-  <ItemGroup>
-    <ClCompile Include="epoll_plus.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="locker.h" />
-  </ItemGroup>
-  <ItemDefinitionGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>-levent %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
 </Project>
