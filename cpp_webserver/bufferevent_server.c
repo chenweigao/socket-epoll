@@ -82,6 +82,11 @@ int main(int argc, const char* argv[])
 {
 	// 创建一个事件处理框架
 	struct event_base* base = event_base_new();
+	if (!base) {
+		fprintf(stderr, "Could not initialize libevent!\n");
+		return 1;
+	}
+
 
 	// init serv
 	struct sockaddr_in serv;
@@ -103,6 +108,7 @@ int main(int argc, const char* argv[])
 	}
 
 	struct event* signal_event;
+
 
 	// SIGINT in <signal.h> 程序终止信号：ctrl + c
 	signal_event = evsignal_new(base, SIGINT, signal_cb, (void*)base);

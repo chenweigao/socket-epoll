@@ -39,6 +39,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bufferevent_client.c" />
     <ClCompile Include="bufferevent_server.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
